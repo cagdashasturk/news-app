@@ -12,7 +12,6 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View>
         <Text style={styles.header_text}>News</Text>
         <FlatList
           ListHeaderComponent={HorizontalScrollView}
@@ -20,8 +19,6 @@ const App = () => {
           renderItem={renderNews}
           keyExtractor={extractKey}
         />
-        <Text>Hello</Text>
-      </View>
     </SafeAreaView>
   );
 }
