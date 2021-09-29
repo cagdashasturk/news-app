@@ -5,16 +5,29 @@ import news_data from './news_data.json';
 
 
 const App = () => {
+
+  const renderNews = ({ item }) => <NewsCard news={item} />
+  const extractKey = item => item.u_id.toString();
+
   return (
-    <SafeAreaView>
-      <FlatList
-        data={news_data}
-        renderItem={({ item }) => <NewsCard news={item} />}
-      />
-      <Text>Hello</Text>
+    <SafeAreaView style={styles.container}>
+      <View>
+        <FlatList
+          data={news_data}
+          renderItem={renderNews}
+          keyExtractor={extractKey}
+        />
+        <Text>Hello</Text>
+      </View>
     </SafeAreaView>
   );
 }
 
-
 export default App;
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    backgroundColor: '#eceff1',
+  }
+})
